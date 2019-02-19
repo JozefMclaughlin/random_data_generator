@@ -29,4 +29,18 @@ class DataGenerator
   def get_birthday
     Faker::Date.birthday
   end
+
+  def get_age
+    Date.today.year - get_birthday.year
+  end
+
+  def get_marital_status
+    Faker::Demographic.marital_status
+  end
+
+  def get_phone_number
+    Faker::Config.locale = 'en-GB'
+    Faker::PhoneNumber.cell_phone.gsub(' ','')
+
+  end
 end
